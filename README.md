@@ -37,9 +37,6 @@ Este proyecto implementa una aplicación web para registrar currículums, usando
   <img width="1365" height="740" alt="image" src="https://github.com/user-attachments/assets/8f9a6503-7561-4028-9534-4b23abe2e63e" />
 
 
-- Administración fácil con phpMyAdmin.
-- 
-
 ---
 
 ## Estructura del proyecto
