@@ -14,9 +14,31 @@ Este proyecto implementa una aplicación web para registrar currículums, usando
 ## Funcionalidades
 
 - Registro de currículums: nombre, correo, experiencia, formación académica.
+- 
+  <img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/c1a2cbba-760f-487d-8315-dbc1bee570c5" />
+
+  
 - Alta disponibilidad y balanceo con Nginx.
+  
+  <img width="1365" height="717" alt="image" src="https://github.com/user-attachments/assets/89dfb58f-7320-42e4-bad9-838e33689b28" />
+
+  <img width="1365" height="767" alt="image" src="https://github.com/user-attachments/assets/bc903aad-d6cd-44d2-ab72-070a21709e61" />
+
+
 - Replicación MySQL master-slave configurada.
+
+  MASTER
+
+  <img width="1365" height="711" alt="image" src="https://github.com/user-attachments/assets/44e3fa08-2767-424e-9d47-2c9756782627" />
+
+  
+  SLAVE
+  
+  <img width="1365" height="740" alt="image" src="https://github.com/user-attachments/assets/8f9a6503-7561-4028-9534-4b23abe2e63e" />
+
+
 - Administración fácil con phpMyAdmin.
+- 
 
 ---
 
