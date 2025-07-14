@@ -1,5 +1,5 @@
 
-# 🐳 Proyecto: Aplicación Web con Flask + MySQL + NGINX + Docker
+# Proyecto: Aplicación Web con Flask + MySQL + NGINX + Docker
 
 Este proyecto implementa una aplicación web para registrar currículums, usando:
 
@@ -11,7 +11,7 @@ Este proyecto implementa una aplicación web para registrar currículums, usando
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 - Registro de currículums: nombre, correo, experiencia, formación académica.
 - Alta disponibilidad y balanceo con Nginx.
@@ -20,30 +20,30 @@ Este proyecto implementa una aplicación web para registrar currículums, usando
 
 ---
 
-## 🗂️ Estructura del proyecto
+## Estructura del proyecto
 
 ```
-📁 servidor1/
+  servidor1/
   ├── app.py
   ├── templates/
        └── index.html
   └── Dockerfile
-📁 servidor2/
+  servidor2/
   ├── app.py
   ├── templates/
        └── index.html
   └── Dockerfile
-📁 mysql/
+  mysql/
   ├── master.cnf
   └── slave.cnf
-📁 nginx/
+  nginx/
   └── nginx.conf
 docker-compose.yml
 ```
 
 ---
 
-## ⚙️ Configuración
+## Configuración
 
 ### Variables importantes en `docker-compose.yml`
 
@@ -73,16 +73,16 @@ binlog-do-db=db_informacion
 
 ---
 
-## 🏃‍♂️ Ejecución
+## Ejecución
 
-### 1️⃣ Clona el repositorio
+### 1️. Clona el repositorio
 
 ```bash
 git clone https://github.com/tuusuario/tu-repo.git
 cd tu-repo
 ```
 
-### 2️⃣ Construye y levanta los contenedores
+### 2️. Construye y levanta los contenedores
 
 ```bash
 docker compose up --build -d
@@ -90,16 +90,16 @@ docker compose up --build -d
 
 ---
 
-### 3️⃣ Accede a la aplicación
+### 3️. Accede a la aplicación
 
-- 🌐 **Formulario web**: [http://localhost/](http://localhost/)
-- ⚙️ **phpMyAdmin**: [http://localhost:8081](http://localhost:8081)
+- **Formulario web**: [http://localhost/](http://localhost/)
+- **phpMyAdmin**: [http://localhost:8081](http://localhost:8081)
   - Usuario: `root`
   - Password: `root`
 
 ---
 
-## 🐬 Configuración de la replicación
+## Configuración de la replicación
 
 Para configurar la replicación manualmente:
 
@@ -150,14 +150,4 @@ SHOW REPLICA STATUS\G
 ```
 
 ---
-
-## 💬 Contacto
-
-Cualquier duda o mejora, abre un **issue** o envía un **pull request**.  
-¡Gracias por contribuir! 🚀
-
----
-
-## 📄 Licencia
-
-MIT License.
+## Desarrollado por Isaac Quinapallo y Alejandro Gutierrez
