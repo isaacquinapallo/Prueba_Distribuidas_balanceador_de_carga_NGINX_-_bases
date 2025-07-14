@@ -1,0 +1,83 @@
+services:
+  servidor1:
+    container_name: Servidor1
+    build: 
+      context: ./servidor1
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - MYSQL_HOST=maestro1
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DB=db_informacion
+      - MYSQL_PORT=3306
+    depends_on:
+      - maestro1
+
+  servidor2:
+    container_name: Servidor2
+    build: 
+      context: ./servidor2
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"
+    environment:
+      - MYSQL_HOST=maestro2
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DB=db_informacion
+      - MYSQL_PORT=3306
+    depends_on:
+      - maestro2
+
+  maestro1:
+    image: mysql:8.0
+    container_name: Maestro1
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_informacion
+    ports:
+      - "3306:3306"      # ✅ Puerto principal
+    volumes:
+      - maestro1_data:/var/lib/mysql
+      - ./mysql/master.cnf:/etc/mysql/conf.d/master.cnf
+
+  maestro2:
+    image: mysql:8.0
+    container_name: Maestro2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_informacion
+    ports:
+      - "3307:3306"
+    volumes:
+      - maestro2_data:/var/lib/mysql
+      - ./mysql/slave.cnf:/etc/mysql/conf.d/slave.cnf
+    command: --server-id=2 --relay-log=relay-log --log-bin=mysql-bin --binlog-do-db=db_informacion
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_lb
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - servidor1
+      - servidor2
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOSTS: "maestro1,maestro2"
+      PMA_ARBITRARY: 1
+    ports:
+      - "8081:80"
+    depends_on:
+      - maestro1
+      - maestro2
+
+volumes:
+  maestro1_data:
+  maestro2_data:
